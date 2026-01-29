@@ -12,19 +12,14 @@ async def get_user_by_id(user_id: int) -> Optional[User]:
 async def create_user(user: User):
     await user_repository.create_user(user)
 
-# async def update_user(self, user_id: int, userUpdate: UserUpdate):
-#     existing_user = await self.user_repository.get_user_by_id(user_id)
-#     if not existing_user:
-#         raise HTTPException(status_code=404, detail="User not found")
-#     update_data = userUpdate.dict(exclude_unset=True)
-#
-#     for key, value in update_data.items():
-#         setattr(existing_user, key, value)
-#
-#     await self.user_repository.update_user(user_id, existing_user)
-#     return existing_user
+async def update_user(user_id: int, user: User):
+    await user_repository.update_user(user_id,user)
 
+async def register_user(user_id: int):
+    await user_repository.register_user(user_id)
+    return {"message": "User registered", "user_id": user_id}
 
 async def delete_user(user_id: int):
-    await user_repository.delete_user(user_id)
+    deleted_rows = await user_repository.delete_user(user_id)
+    return deleted_rows
     ## ADD DELETING ALL ANSWERS FROM THE USER WITH USER_ID

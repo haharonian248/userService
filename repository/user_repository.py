@@ -45,8 +45,8 @@ async def update_user(user_id: int, user: User):
     await database.execute(query, values=values)
 
 async def delete_user(user_id: int):
-    query="DELETE FROM poll_user WHERE user_id = :user_id"
-    await database.execute(query, values=user_id)
+    query="DELETE FROM poll_user WHERE id = :user_id"
+    return await database.execute(query, values={"user_id": user_id})
 
 async def register_user(user_id: int):
     query="""
@@ -54,4 +54,4 @@ async def register_user(user_id: int):
         SET is_registered=TRUE
         WHERE id=:user_id
     """
-    await database.execute(query, values=user_id)
+    await database.execute(query, values={"user_id": user_id})
