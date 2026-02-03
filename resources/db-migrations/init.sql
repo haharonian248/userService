@@ -11,3 +11,11 @@ CREATE TABLE poll_user (
     is_registered BOOLEAN NOT NULL DEFAULT FALSE,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE user_question_answer (
+    user_id int(11) NOT NULL,
+    q_id int(11) NOT NULL,
+    a_id int(11),
+    PRIMARY KEY (user_id, q_id),
+    FOREIGN KEY (user_id) REFERENCES poll_user(id) ON DELETE CASCADE,
+);

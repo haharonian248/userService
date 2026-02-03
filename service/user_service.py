@@ -1,6 +1,8 @@
 
-from typing import Optional
+from typing import Optional, List
 
+from api.internal_api.poll_service import user_answer_service_api
+from api.internal_api.poll_service.model.user_answer_response import UserAnswerResponse
 from model.user import User
 
 from repository import user_repository
@@ -23,3 +25,11 @@ async def delete_user(user_id: int):
     deleted_rows = await user_repository.delete_user(user_id)
     return deleted_rows
     ## ADD DELETING ALL ANSWERS FROM THE USER WITH USER_ID
+
+async def get_user_answers_by_user_id(user_id: int) -> Optional[List[UserAnswerResponse]]:
+    user_answer_response_list = await user_answer_service_api.get_user_answer(user_id)
+    return user_answer_response_list
+
+async def get_count_answers_by_user_id(user_id: int) -> int:
+    user_answered_count = await user_answer_service_api.get_count_answered_by_user(user_id)
+    return user_answered_count

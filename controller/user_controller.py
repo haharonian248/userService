@@ -1,8 +1,12 @@
-from http.client import HTTPException
-from typing import Optional
+from typing import List, Optional
 
-from fastapi import APIRouter, HTTPException
 from starlette import status
+from fastapi import APIRouter, HTTPException
+
+from api.internal_api.poll_service import user_answer_service_api
+from api.internal_api.poll_service.model.user_answer_response import UserAnswerResponse
+
+from fastapi import APIRouter
 
 from model.user import User
 from service import user_service
@@ -16,7 +20,7 @@ router = APIRouter(
 async def get_user_by_id(user_id: int) -> Optional[User]:
     user = await user_service.get_user_by_id(user_id)
     if not user:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"User with user id {user_id} not found")
+        raise HTTPException(status_code=404, detail=f"User with user id {user_id} not found")
     return user
 
 @router.post("/", status_code=status.HTTP_201_CREATED)
@@ -49,3 +53,20 @@ async def register_user(user_id: int):
         return await user_service.register_user(user_id)
     except Exception:
         raise HTTPException(status_code=404, detail=f"User with user id {user_id} not found")
+
+@router.get("/userAnswers/{user_id}", response_model=List[UserAnswerResponse])
+async def get_user_answers_by_user_id(user_id: int) -> Optional[List[UserAnswerResponse]]:
+    result = await user_service.get_user_answers_by_user_id(user_id)
+    if result:
+        return result
+    else:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"User with user id {user_id} not found")
+
+@router.get("/numberOfAnsweredQuestions/{user_id}", response_model=int)
+async def get_count_answers_by_user_id(user_id: int) -> int:
+    result = await user_service.get_count_answers_by_user_id(user_id)
+    if result:
+        return result
+    else:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"User with user id {user_id} not found")
+
