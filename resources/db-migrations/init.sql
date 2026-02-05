@@ -12,10 +12,10 @@ CREATE TABLE poll_user (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE user_question_answer (
-    user_id int(11) NOT NULL,
-    q_id int(11) NOT NULL,
-    a_id int(11),
-    PRIMARY KEY (user_id, q_id),
-    FOREIGN KEY (user_id) REFERENCES poll_user(id) ON DELETE CASCADE,
-);
+INSERT INTO poll_user (first_name, last_name, email, age, address, joining_date, is_registered)
+VALUES
+('Alice', 'Green', 'alice@example.com', 28, '123 Maple St', '2024-01-10', FALSE),
+('Bob', 'Smith', 'bob@example.com', 34, '45 Oak Ave', '2024-02-15', TRUE),
+('Charlie', 'Brown', 'charlie@example.com', 22, '78 Pine Rd', '2024-03-01', FALSE),
+('Diana', 'White', 'diana@example.com', 30, '90 Cedar Blvd', '2024-01-20', TRUE),
+('Ethan', 'Black', 'ethan@example.com', 27, '12 Birch Ln', '2024-02-05', FALSE);

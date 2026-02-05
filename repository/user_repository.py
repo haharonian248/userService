@@ -55,3 +55,11 @@ async def register_user(user_id: int):
         WHERE id=:user_id
     """
     await database.execute(query, values={"user_id": user_id})
+
+async def is_user_registered(user_id: int) -> bool:
+    query = "SELECT is_registered fROM poll_user WHERE id=:user_id"
+    row = await database.fetch_one(query, values={"user_id": user_id})
+    if row is None:
+        return False
+    else:
+        return bool(row["is_registered"])
