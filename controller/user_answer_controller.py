@@ -1,9 +1,9 @@
-from typing import List, Optional
+from typing import Optional
 
 from fastapi import APIRouter, HTTPException
 from starlette import status
 
-from api.internal_api.poll_service.model.user_answer_response import UserAnswerResponse
+from api.internal_api.poll_service.model.user_with_answer_response import UserWithAnswerResponse
 from model.user_answer_request import UserAnswerRequest
 from service import user_answer_service
 
@@ -12,8 +12,8 @@ router = APIRouter(
     tags=["userAnswer"]
 )
 
-@router.get("/userAnswers/{user_id}", response_model=List[UserAnswerResponse])
-async def get_user_answers_by_user_id(user_id: int) -> Optional[List[UserAnswerResponse]]:
+@router.get("/getUserAnswers/{user_id}", response_model=UserWithAnswerResponse)
+async def get_user_answers_by_user_id(user_id: int) -> Optional[UserWithAnswerResponse]:
     result = await user_answer_service.get_user_answers_by_user_id(user_id)
     if result:
         return result
@@ -37,3 +37,11 @@ async def create_user_answer(user_answer_request: UserAnswerRequest):
         print("ERROR:", e)
         raise HTTPException(status_code=400, detail=str(e))
 
+@router.post("/updateUserAnswer", response_model=UserWithAnswerResponse)
+async def update_user_answer(user_answer_request: UserAnswerRequest):
+    try:
+        result = await user_answer_service.update_user_answer(user_answer_request)
+        return result
+    except Exception as e:
+        print("ERROR:", e)
+        raise HTTPException(status_code=400, detail=str(e))

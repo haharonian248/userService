@@ -1,28 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1e9c54c-8de6-4c29-8070-bf690007c2ae" name="Changes" comment="" />
+    <list default="true" id="a1e9c54c-8de6-4c29-8070-bf690007c2ae" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/internal_api/poll_service/model/user_with_answer_response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/user_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/UserServiceNew.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/UserServiceNew.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/internal_api/poll_service/model/question_answer_user_count_response.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/internal_api/poll_service/model/question_answer_user_count_response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/internal_api/poll_service/user_answer_service_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/internal_api/poll_service/user_answer_service_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/user_answer_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/user_answer_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/user_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/user_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/user.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/user_answer.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/user_response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/user_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/repository/user_repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/user_answer_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/user_answer_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/user_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/user_service.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "haharonian248"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/haharonian248/userService.git",
+    "accountId": "16e28f00-02cc-43a0-a23a-cbef89e6ea3a"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="38vMGO3KduxnK4rckG3kKBQy7xo" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main"
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/User/PycharmProjects/PythonProject/UserServiceNew",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -41,5 +86,15 @@
       <updated>1769675495194</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/controller/user_controller.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

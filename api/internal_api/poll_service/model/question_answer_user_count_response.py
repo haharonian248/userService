@@ -1,6 +1,5 @@
 from pydantic import BaseModel
 
-
 class QuestionAnswerUserCountResponse(BaseModel):
     q_id: int
     q_text: str

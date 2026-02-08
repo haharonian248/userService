@@ -1,14 +1,15 @@
 from typing import Optional
 
-from model.user import User
+from model.user_request import UserRequest
+from model.user_response import UserResponse
 from repository.database import database
 
 
-async def get_by_id(user_id: int) -> Optional[User]:
+async def get_by_id(user_id: int) -> Optional[UserResponse]:
     query = "SELECT * FROM poll_user WHERE id=:user_id"
     return await database.fetch_one(query, values={"user_id": user_id})
 
-async def create_user(user: User):
+async def create_user(user: UserRequest):
     query="""
         INSERT INTO poll_user (first_name, last_name, email, age, address, joining_date, is_registered)
         VALUES (:first_name, :last_name, :email, :age, :address, CURRENT_DATE, FALSE)
@@ -23,7 +24,7 @@ async def create_user(user: User):
     }
     await database.execute(query, values= values)
 
-async def update_user(user_id: int, user: User):
+async def update_user(user_id: int, user: UserRequest):
     query= """
         UPDATE poll_user
         SET first_name=:first_name,
