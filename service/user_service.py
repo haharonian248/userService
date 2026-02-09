@@ -33,12 +33,12 @@ async def delete_user(user_id: int):
     if user_exists:
         user_with_answer_response = await user_answer_service.get_user_answers_by_user_id(user_id)
         if user_with_answer_response is None or user_with_answer_response.answers is None:
-            message = "User doesn't have any answered questions"
+            message = " User doesn't have any answered questions."
         else:
             await user_answer_service_api.delete_user_answers(user_id)
-            message = "User answers deleted"
+            message = " User answers has been deleted."
         await user_repository.delete_user(user_id)
-        return {"message": message + f" and user with user id: {user_id} deleted"}
+        return {"message": f"User with user id:{user_id} has been deleted." + message}
     else:
         message = "User doesn't exist"
         return {"message": message}
