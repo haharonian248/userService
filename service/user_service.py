@@ -29,17 +29,19 @@ async def register_user(user_id: int):
         return {"message": f"User with user id: {user_id} is now registered"}
 
 async def delete_user(user_id: int):
-    user_exists = get_user_by_id(user_id)
+    user_exists = await get_user_by_id(user_id)
     if user_exists:
-        await user_repository.delete_user(user_id)
         user_with_answer_response = await user_answer_service.get_user_answers_by_user_id(user_id)
-        if user_with_answer_response.answers is None:
-            return {"message": "User doesn't have any answered questions"}
+        if user_with_answer_response is None or user_with_answer_response.answers is None:
+            message = "User doesn't have any answered questions"
         else:
             await user_answer_service_api.delete_user_answers(user_id)
-            return {"message":"User answers deleted"}
+            message = "User answers deleted"
+        await user_repository.delete_user(user_id)
+        return {"message": message + f" and user with user id: {user_id} deleted"}
     else:
-        return {"message": "User doesn't exist"}
+        message = "User doesn't exist"
+        return {"message": message}
 
 async def is_user_registered(user_id: int) -> bool:
     is_registered = await user_repository.is_user_registered(user_id)

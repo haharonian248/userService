@@ -28,13 +28,13 @@ async def create_user(user: UserRequest):
     except Exception:
         raise HTTPException(status_code=400, detail=status.HTTP_400_BAD_REQUEST)
 
-@router.delete("/deleteUser/{user_id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete("/deleteUser/{user_id}", status_code=status.HTTP_202_ACCEPTED)
 async def delete_user(user_id: int):
     try:
         result = await user_service.delete_user(user_id)
         return result
     except Exception:
-        raise HTTPException(status_code=400, detail=f"No user found with user id: {user_id}")
+        raise HTTPException(status_code=400, detail=status.HTTP_400_BAD_REQUEST)
 
 @router.put("/updateUser/{user_id}", status_code=status.HTTP_202_ACCEPTED)
 async def update_user(user_id: int, user: UserRequest):
